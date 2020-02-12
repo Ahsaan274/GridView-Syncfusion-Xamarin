@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             xmlns:IOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             IOS:Page.UseSafeArea="True"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Grid"
+             x:Class="Grid.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel />
+    </ContentPage.BindingContext>
+    <Syncfusion:SfDataGrid  x:Name="gridData"
+                            AutoGenerateColumns="True"
+                            ItemsSource="{Binding OrdersInfo}"
+                            AllowSorting="true"
+                            AllowTriStateSorting="True"
+                            AllowMultiSorting="True"
+                            VerticalOverScrollMode="None"
+                            ColumnSizer="Star"
+                            AllowDraggingColumn="True"
+                            AllowDraggingRow="True"
+                            SelectionMode="Single"
+                            >
+        <Syncfusion:SfDataGrid.Columns>
+            <Syncfusion:GridTextColumn MappingName="OrderID" HeaderText="Order ID" HeaderFontAttribute="Italic"/>
+        </Syncfusion:SfDataGrid.Columns>
+        <Syncfusion:SfDataGrid.GroupColumnDescriptions>
+            <Syncfusion:GroupColumnDescription ColumnName="ShipCountry"/>
+        </Syncfusion:SfDataGrid.GroupColumnDescriptions>
+
+    </Syncfusion:SfDataGrid>
+
+</ContentPage>
